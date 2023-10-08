@@ -1,18 +1,10 @@
-import json
-import os.path,requests
-from concurrent.futures import ThreadPoolExecutor
-from typing import List
-import more_itertools
-from tqdm import tqdm
+import os.path
 import sys
-import time
-import pyttsx3,re
 sys.path.append(".")
 from models.api_base import APIBase
 from logger import get_logger
-from datasets import load_dataset
 logger = get_logger(__name__)
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 def call_api(prompt,temperature=0,engine="gpt-3.5-turbo",max_tokens=1000):
     client=APIBase(
             engine=engine,
@@ -25,4 +17,4 @@ def call_api(prompt,temperature=0,engine="gpt-3.5-turbo",max_tokens=1000):
         )
     result=[]
     result.append(client.get_multiple_sample(prompt))
-    return result
+    return result[0]

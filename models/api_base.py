@@ -14,7 +14,6 @@ from typing import List
 import openai
 from tqdm import tqdm
 import openai.error as openai_error
-import pyttsx3
 
 from logger import get_logger
 
@@ -82,7 +81,7 @@ class APIBase(object):
         Retry a function with exponential backoff.
         代码借鉴自 https://github.com/openai/openai-cookbook/blob/main/examples/How_to_handle_rate_limits.ipynb 的 Example 3: Manual backoff implementation
         """
-        errors: tuple = (openai.error.RateLimitError,openai_error.APIConnectionError,openai_error.APIError,openai_error.ServiceUnavailableError,TimeoutError)
+        errors: tuple = (openai.error.RateLimitError,openai_error.APIConnectionError,openai_error.APIError,openai_error.ServiceUnavailableError,TimeoutError,openai_error.Timeout)
         # Initialize variables
         num_retries = 0
         idx=prompt_list["idx"]
@@ -95,7 +94,7 @@ class APIBase(object):
                 for _ in tqdm(range(ceil(used_delay - 1)), desc=f"sleep{used_delay - 1}"):
                     time.sleep(1)
                 # time.sleep(used_delay - 1)  
-                results = self._get_multiple_sample(prompt_list)
+                results = self._get_multiple_sample(prompt_list)[0]
                 APIBase.delay = INIT_DELAY 
                 return {"result":results,"idx":idx}
             except errors as e:
