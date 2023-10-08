@@ -1,16 +1,18 @@
 # Self-Contemplation Prompting (SEC for short)
 
-Source code for paper Are Human-generated Demonstrations Necessary for In-context Learning
+Source code for paper [Are Human-generated Demonstrations Necessary for In-context Learning](https://arxiv.org/abs/2309.14681)
 
 ---------
 
 ### Environment Setup
 
+```
 pip install numpy
 pip install openai
 pip install datasets
 pip install human_eval
 pip install python-json-logger
+```
 
 ### Usage
 
@@ -47,6 +49,10 @@ Run only the evaluation part of CoT-SEC for the MATH dataset from index 1000 to 
 ```sh  
 python main.py --dataset MATH --mode test --scenario cot --k 4 --begin 1000 --end 3000
 ```
+
+### Preprocessed datasets and model-generated demonstrations
+
+Preprocessed datasets and model-generated demonstrations can be downloaded by this [link](https://drive.google.com/file/d/1ZCD0a_nmkPxWv2FlG6QN0uJ1kZ9nNRej/view?usp=share_link). Please unzip the file to `/data`.
 
 ### For Ceval and HumanEval
 
