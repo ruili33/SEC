@@ -24,7 +24,7 @@ Source code for paper [Are Human-generated Demonstrations Necessary for In-conte
 | *CoT-SEC*            | **33.5** | 77.0 | 56.6    | 51.8       | 86.9| **71.4** | 54.6    | -          |
 |                      | (+2.3)| (-0.4) | (-1.7)  | (+1.3)      | (-1.0)| (+1.8) | (+1.5)  | -          |
 
-# References
+#### References
 1. openai2023gpt4
 2. fu2023chain
 3. huang2023c
