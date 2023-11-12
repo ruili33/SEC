@@ -138,7 +138,7 @@ def answer_validation(results,dataset,scenario,k):
         else:
             raise NotImplementedError
         result=process_raw(results)
-        matches = re.findall(pattern, result+"\n\n")
+        matches = re.findall(pattern, result+"\n\n", re.DOTALL)
         if len(matches)<k:
             matches_a=get_special_match(result,pattern)
             if len(matches_a)>=k:

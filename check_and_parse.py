@@ -266,7 +266,7 @@ def parse_answer(input_data,dataset,scenario,k):
             raise NotImplementedError
         for i in range(0,1319):
             result=process_raw(input_data[i]["result"])
-            matches = re.findall(pattern, result+"\n\n")
+            matches = re.findall(pattern, result+"\n\n", re.DOTALL)
             if len(matches)<k:
                 matches_a=get_special_match(result,pattern)
                 if len(matches_a)>=k:
