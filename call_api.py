@@ -4,7 +4,7 @@ sys.path.append(".")
 from models.api_base import APIBase
 from logger import get_logger
 logger = get_logger(__name__)
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "you api key"
 def call_api(prompt,temperature=0,engine="gpt-3.5-turbo",max_tokens=1000):
     client=APIBase(
             engine=engine,
